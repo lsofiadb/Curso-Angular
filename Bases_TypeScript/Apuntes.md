@@ -1,8 +1,8 @@
 # Bases fundamentales de TypeScript :bookmark_tabs:
-## Introducción
+## Introducción :beginner:
 
-### Tipos básicos 
-[Documentacion](https://www.typescriptlang.org/docs/handbook/basic-types.html) referente a los tipos de datos en TS:
+### Tipos básicos :white_check_mark:
+[Documentacion](https://www.typescriptlang.org/docs/handbook/basic-types.html) referente a los tipos de datos en TS.
 
 Para la declaración de variables con tipado:
 
@@ -28,9 +28,9 @@ edad = 'Veintidos años';
 
 **NOTA**:pushpin: al momento de ejecutar el código fuente el navegador hace una transformación del código correspondiente de TS a JS, con el fin de que el navegador pueda comprenderlo, a través de un archivo llamado Bundle.js (el cual es creado por Webpack) en donde se integran todos los ficheros de JS, por ello al unificar este conjunto de archivos en uno solo pueden presentarse conflictos si se tienen variables con el mismo nombre en distintos ficheros, ya que pasan a ser "globales" porque hacen parte del mismo scope de JS, esto sucede para este ejemplo al utilizar Webpack, más no para Angular.
 
-### Arreglos, objetos e interfaces
+### Arreglos, objetos e interfaces :mag:
 
-#### Arreglos
+#### Arreglos :checkered_flag:
 Declaración y asignación con inferencia de tipos:
 
 ``` TypeScript
@@ -57,7 +57,7 @@ colores.push("230,230,250")
 
 **RECOMENDACIÓN**: SIEMPRE poner el tipo de dato en la declaración de las variables. 
 
-#### Interfaces
+#### Interfaces :o:
 
 Su funcionamiento es similar a las clases de Java, ya que permiten partir de una plantilla para crear objetos posteriormente.
 
@@ -70,7 +70,7 @@ interface Personaje {
 }
 ```
 
-#### Objetos
+#### Objetos :white_circle::red_circle::large_blue_circle:
 
 Los objetos se definen a partir de una interfaz.
 
@@ -87,8 +87,8 @@ console.table( nuevoPersonaje ) //HACK!! Visualizar el objeto en formato de tabl
 
 **NOTA**: al observar el navegador y analizar la conversión que se encuentra en el archivo Bundle.js, se podrá analizar que las interfaces no se muestran, es decir se ignoran, esto se debe a que NO existen en JS. 
 
-### Funciones y sus argumentos
-Especificando el tipo de datos en parametros y retorno.
+### Funciones y sus argumentos :mailbox::love_letter:
+Especificando el tipo de datos en parametros y retorno:
 ``` TypeScript
 function sumar (a:number, b:number) : number{
     return a + b;
@@ -99,7 +99,7 @@ const resultado = sumar(2,3);
 console.log("Suma: ",resultado)
 ```
 
-Especificando el tipo de datos unicamente en los parametros. 
+Especificando el tipo de datos unicamente en los parametros:
 ``` TypeScript
 function multiplicar (a:number, b:number){
     return (a * b).toString();
@@ -110,7 +110,7 @@ const resultado2 = multiplicar(2,3);
 console.log("Multiplicacion: ",resultado2)
 ```
 
-Arrow functions 
+Arrow functions :twisted_rightwards_arrows:
 
 ``` TypeScript
 //Parametros y retorno de tipo any, inferencia de tipos
@@ -124,7 +124,7 @@ const sumarFlecha2 = (a:number, b:number):number =>{
 }
 ```
 
-Funciones con parametros opcionales.
+Funciones con parametros opcionales :black_square_button::white_square_button:
 ``` TypeScript 
 function calcularPotencia (numero:number, coeficiente?:number, base:number=8):number{
     return Math.pow(base,numero);
