@@ -40,3 +40,22 @@ let potencia3: number = calcularPotencia(2,6,8) //si se quiere cambiar la base s
 console.log("El valor de la potencia es: ", potencia)
 console.log("El valor de la potencia 1 es: ", potencia2)
 console.log("El valor de la potencia 2 es: ", potencia3)
+
+/* === Funciones con objetos como argumentos === */
+
+interface PersonajeLOR{
+    nombre: string;
+    pv: number;
+    curar: (puntosVida:number)=>void;
+}
+
+const hobbit: PersonajeLOR = {
+    nombre: "Hobbit",
+    pv: 100,
+    curar(puntosVida:number):void{
+        this.pv += puntosVida;
+    }
+}
+
+hobbit.curar(20);
+console.log("Los puntos de vida del personaje",hobbit.nombre, "son", hobbit.pv)
