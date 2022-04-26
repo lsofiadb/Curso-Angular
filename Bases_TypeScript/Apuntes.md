@@ -59,7 +59,7 @@ colores.push("230,230,250")
 
 #### Interfaces
 
-Su funcionamiento es similar a las clases de Java, ya que permiten partir de una plantilla para crear objetos posteriormente.
+Su funcionamiento es similar a las interfaces de Java, ya que permiten partir de una plantilla, tanto de variables como métodos, para crear objetos posteriormente, implementando las funciones de acuerdo a la necesidad. 
 
 ``` TypeScript
 interface Personaje {
@@ -139,6 +139,51 @@ console.log("El valor de la potencia 1 es: ", potencia2)
 console.log("El valor de la potencia 2 es: ", potencia3)
 ```
 
+### Funciones con objetos como argumentos
+
+``` TypeScript
+//Se parte de una interfaz
+interface PersonajeLOR{
+    nombre: string;
+    pv: number;
+}
+
+//se recomienda el uso de constantes en objetos que no cambian de valor, lo cual
+//permite hacerlas variables más livianas para JS
+
+const hobbit: PersonajeLOR = {
+    nombre: "Hobbit",
+    pv: 100
+}
+
+function curarPersonaje(personaje:PersonajeLOR, puntosVida:number): void{
+    personaje.pv += puntosVida;
+    console.log(personaje)
+}
+
+curarPersonaje(hobbit,20);
+```
+
+Sin embargo una mejor opción es definir la función curarPersonaje() en el interior de la interfaz:
+
+``` TypeScript
+interface PersonajeLOR{
+    nombre: string;
+    pv: number;
+    curar: (puntosVida:number)=>void;
+}
+
+const hobbit: PersonajeLOR = {
+    nombre: "Hobbit",
+    pv: 100,
+    curar(puntosVida:number):void{
+        this.pv += puntosVida;
+    }
+}
+
+hobbit.curar(20);
+console.log("Los puntos de vida del personaje",hobbit.nombre, "son", hobbit.pv)
+```
 
 ### Desestructuración de arreglos y objetos
 
