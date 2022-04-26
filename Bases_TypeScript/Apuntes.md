@@ -185,6 +185,75 @@ hobbit.curar(20);
 console.log("Los puntos de vida del personaje",hobbit.nombre, "son", hobbit.pv)
 ```
 
+### Tarea sobre interfaces y objetos resuelta :white_check_mark:
+
+Alternativa :one:
+
+``` TypeScript
+interface SuperHeroe{
+    nombre:string,
+    edad:number,
+    direccion:{
+        calle:string,
+        pais:string,
+        ciudad:string
+    },
+    mostrarDireccion: () => string
+}
+
+const superHeroe: SuperHeroe = {
+    nombre: 'Spiderman',
+    edad: 30,
+    direccion: {
+        calle: 'Main St',
+        pais:'USA',
+        ciudad: 'NY'
+    },
+    mostrarDireccion(){
+        return this.nombre + ', ' + this.direccion.ciudad + ', ' + this.direccion.pais;
+    }
+}
+
+const direcccion = superHeroe.mostrarDireccion();
+console.log("La dirección de", superHeroe.nombre, "es",direcccion);
+```
+
+Alternativa :two: (más interesante) :bulb:
+
+``` TypeScript
+interface Direccion{
+    calle:string,
+    pais:string,
+    ciudad:string
+}
+
+interface SuperHeroe{
+    nombre:string,
+    edad:number,
+    direccion:Direccion,
+    mostrarDireccion: () => string
+}
+
+const superHeroe: SuperHeroe = {
+    nombre: 'Spiderman',
+    edad: 30,
+    direccion: {
+        calle: 'Main St',
+        pais:'USA',
+        ciudad: 'NY'
+    },
+    mostrarDireccion(){
+        return this.nombre + ', ' + this.direccion.ciudad + ', ' + this.direccion.pais;
+    }
+}
+
+const direcccion = superHeroe.mostrarDireccion();
+console.log("La dirección de", superHeroe.nombre, "es",direcccion);
+
+```
+
+
+
 ### Desestructuración de arreglos y objetos
 
 ### Importaciones y exportaciones
