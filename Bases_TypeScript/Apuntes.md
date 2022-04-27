@@ -252,9 +252,96 @@ console.log("La dirección de", superHeroe.nombre, "es",direcccion);
 
 ```
 
-
-
 ### Desestructuración de arreglos y objetos
+
+#### Desestructuración de objetos :mag:
+
+``` TypeScript
+//partiendo de interfaces
+
+interface Reproductor{
+    volumen:number,
+    segundo:number,
+    cancion:string,
+    detalles: Detalles
+}
+
+interface Detalles{
+    autor:string,
+    anio:number
+}
+
+const reproductor: Reproductor = {
+    volumen:60,
+    segundo:30,
+    cancion:"Vienna",
+    detalles:{
+        autor:"Billy Joel",
+        anio:1977
+    }
+}
+```
+El problema surge cuando se quiere acceder a las propiedades del objeto:
+
+
+``` TypeScript
+//Para evitar repetir tantas veces el nombre del objeto, como se observa a continuación, es conveniente realizar la desestructuración
+console.log("El volumen es", reproductor.volumen)
+console.log("El segundo es", reproductor.segundo)
+console.log("La cancion es", reproductor.cancion)
+console.log("El autor es", reproductor.detalles.autor)
+console.log("El año de lanzamiento es", reproductor.detalles.anio)
+```
+
+Al solucionar el problema:
+
+``` TypeScript
+//Surge la desestructuración de objetos, en donde a través de constantes
+//se almacenan los valores que toman las propiedades de los objetos
+//con el fin de poder utilizarlas directamente, teniendo un codigo más limpio
+const {volumen, segundo, cancion, detalles} = reproductor
+const {autor, anio} = detalles
+console.log("El volumen es", volumen)
+console.log("El segundo es", segundo)
+console.log("La cancion es", cancion)
+console.log("El autor es", autor)
+console.log("El año de lanzamiento es", anio)
+//este metodo es el más claro y conveniente
+```
+
+Sin embargo existen otras alternativas:
+
+``` TypeScript
+//es posible realizarlo en una sola linea
+const {volumen, segundo, cancion, detalles:{autor,anio}} = reproductor
+//const {autor, anio} = detalles
+console.log("El volumen es", volumen)
+console.log("El segundo es", segundo)
+console.log("La cancion es", cancion)
+console.log("El autor es", autor)
+console.log("El año de lanzamiento es", anio)
+//sin embargo este método puede generar confusiones al pensar que por ejemplo detalles de tipo autor o anio
+```
+Otra alternativa en caso de presentar posibles conflictos:
+
+``` TypeScript
+//NOTA: es posible que mediante la creación de estas constantes se presenten
+//conflictos, al tener otras constantes con el mismo nombre, este problema se
+//puede solucionar a través de
+const segundo =25
+const autor = "Steve Taylor"
+const {volumen, segundo: segundoReproductor, cancion, detalles:{autor:autorReproductor,anio}} = reproductor
+//const {autor, anio} = detalles
+console.log("El volumen es", volumen)
+console.log("El segundo es", segundoReproductor)
+console.log("La cancion es", cancion)
+console.log("El autor es", autorReproductor)
+console.log("El año de lanzamiento es", anio)
+```
+
+``` TypeScript
+
+```
 
 ### Importaciones y exportaciones
 
@@ -265,4 +352,3 @@ console.log("La dirección de", superHeroe.nombre, "es",direcccion);
 ### Decoradores
 
 ### Encadenamiento opcional
-
