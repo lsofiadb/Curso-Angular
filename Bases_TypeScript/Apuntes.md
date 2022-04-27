@@ -252,7 +252,7 @@ console.log("La dirección de", superHeroe.nombre, "es",direcccion);
 
 ```
 
-### Desestructuración de arreglos y objetos
+### Desestructuración de arreglos y objetos :wrench::hammer:
 
 #### Desestructuración de objetos :mag:
 
@@ -339,16 +339,60 @@ console.log("El autor es", autorReproductor)
 console.log("El año de lanzamiento es", anio)
 ```
 
+**NOTA** :microscope: el orden de los parametros en la desestructuración de objetos NO importa, ya que se maneja con el nombre exacto de las propiedades. 
+
+#### Desestructuración de arreglos :mag:
+
+``` TypeScript
+const dbz: string [] = ["Goku", "Vegeta", "Trunks", "Goten"]
+const [p1, p2, p3, p4] = dbz
+
+console.log("El personaje 1 es", p1)
+console.log("El personaje 2 es", p2)
+console.log("El personaje 3 es", p3)
+console.log("El personaje 4 es", p4)
+```
+
+``` TypeScript
+//si solo se necesita una posicion en especifico
+const [, p2, , ] = dbz
+console.log("El personaje 2 es", p2)
+```
+
+**NOTA** :microscope: el orden de los parametros en la desestructuración de arreglos SI importa, ya que se esta haciendo una asignación por cada posición consecutiva del arreglo. 
+
+#### Desestructuración de argumentos :mag:
+
 ``` TypeScript
 
 ```
 
 ### Importaciones y exportaciones
 
+``` TypeScript
+
+```
+
 ### Clases, constructores
+
+``` TypeScript
+
+```
 
 ### Tipos genéricos
 
+``` TypeScript
+
+```
+
 ### Decoradores
 
+``` TypeScript
+
+```
+
 ### Encadenamiento opcional
+
+``` TypeScript
+
+```
