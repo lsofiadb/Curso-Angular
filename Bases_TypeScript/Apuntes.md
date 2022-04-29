@@ -364,6 +364,62 @@ console.log("El personaje 2 es", p2)
 #### Desestructuración de argumentos :mag:
 
 ``` TypeScript
+//partiendo de una interfaz
+interface Producto{
+    descripcion: string;
+    precio: number;
+}
+
+const telefono:Producto = {
+    descripcion: "Samsung Galaxy S21",
+    precio: 250
+}
+
+const tableta: Producto = {
+    descripcion: "iPad Air",
+    precio: 320
+}
+
+//calcular Impuesto sobre venta
+function calcularISV(productos: Producto []){
+
+    let total = 0;
+    productos.forEach( (producto) => {
+        total += producto.precio; //nuevamente se esta repitiendo código innecesariamente
+    });
+    return total*0.15;
+}
+
+const articulos = [telefono, tableta];
+
+const isv = calcularISV(articulos);
+
+console.log('ISV',isv)
+```
+
+La manera de resolver el caso anterior es a través de desestructuación de argumentos, lo cual permite acceder a los atributos de cada elemento del array directamente al invocar el nombre de la propiedad
+
+
+``` TypeScript
+function calcularISV(productos: Producto []):[number,number]{
+
+    let total = 0;
+    productos.forEach( ({precio}) => { //callback
+        total += precio; //se soluciona el problema a través de desestructuracion
+    });
+    return [total, total*0.15];
+}
+
+const articulos = [telefono, tableta];
+
+const [total, isv] = calcularISV(articulos);
+
+console.log('Total',total)
+console.log('ISV',isv)
+```
+
+
+``` TypeScript
 
 ```
 
