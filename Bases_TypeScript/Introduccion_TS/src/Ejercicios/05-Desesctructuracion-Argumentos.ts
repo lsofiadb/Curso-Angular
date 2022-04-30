@@ -1,6 +1,6 @@
 /*=======DESESTRUCTURACION DE ARGUMENTOS=======*/
 //partiendo de una interfaz
-interface Producto{
+export interface Producto{
     descripcion: string;
     precio: number;
 }
@@ -16,7 +16,7 @@ const tableta: Producto = {
 }
 
 //calcular Impuesto sobre venta
-function calcularISV(productos: Producto []):[number,number]{
+export function calcularISV(productos: Producto []):[number,number]{
 
     let total = 0;
     productos.forEach( ({precio}) => { //callback
@@ -29,6 +29,6 @@ const articulos = [telefono, tableta];
 
 const [total, isv] = calcularISV(articulos);
 
-console.log('Total',total)
-console.log('ISV',isv)
+// console.log('Total',total)
+// console.log('ISV',isv)
 

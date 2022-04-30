@@ -418,16 +418,56 @@ console.log('Total',total)
 console.log('ISV',isv)
 ```
 
-
-``` TypeScript
-
-```
-
 ### Importaciones y exportaciones
 
+Las exportaciones permiten hacer una interface o elemento de un archivo como una función, visible para los demás, de tal forma que es posible importarlo en donde sea necesario, beneficiando la estructura  y reusabilidad del código fuente. 
+
+Para realizar la exportación:
+
 ``` TypeScript
+export interface Producto{
+    descripcion: string;
+    precio: number;
+}
+```
+
+``` TypeScript
+export function calcularISV(productos: Producto []):[number,number]{
+
+    let total = 0;
+    productos.forEach( ({precio}) => { //callback
+        total += precio; //se soluciona el problema a través de desestructuracion
+    });
+    return [total, total*0.15];
+}
 
 ```
+
+Mientras que para la importación:
+
+``` TypeScript
+CTRL + . //Permite que VSC sugiera la importación del elemento que se necesita a través de desestructuración
+
+import { Producto, calcularISV } from './05-Desesctructuracion-Argumentos';
+
+const carritoCompras: Producto [] =[
+    {
+        descripcion:"iPhone 11",
+        precio: 1000
+    },
+    {
+        descripcion:"Xiaomi redmi note 7",
+        precio:200
+    }
+]
+
+const [total, isv] = calcularISV(carritoCompras);
+
+console.log("Total", total);
+console.log("ISV", isv);
+```
+
+**NOTA** :dart: algo importante a considerar para el ejemplo trabajado en clase, es que al importar una interfaz, únicamente se ejecutará esa sección de código del archivo en donde se encontraba definida, caso distinto si se trata de una función ya que en esa situación se ejecutará todo el código fuente que se encuentre despues. 
 
 ### Clases, constructores
 
