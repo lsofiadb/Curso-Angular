@@ -471,9 +471,57 @@ console.log("ISV", isv);
 
 ### Clases, constructores
 
+Si bien las clases son similares a las interfaces, su principal diferencia consiste en que en las clases a parte de definir las propiedades que tendrá un objeto, tambien permiten definir e implementar métodos, mientras que en las interfaces únicamente se puede establecer su firma. 
+
 ``` TypeScript
+class Heroe {
+    private alterEgo: string; //atributo accesible dentro de esta clase
+    public edad: number; //atributo accesible fuera de la clase
+    static nombreReal: string; //atributo accesible sin necesidad de crear una instancia
+}
+
+const spiderman = new Heroe(); //instancia de Heroe sin constructor
+```
+
+El constructor es una función que se va a llamar cuando se crea una instancia de una clase con el fin de inicializar los valores de los atributos:
+
+``` TypeScript
+class Heroe {
+    alterEgo: string; 
+    edad: number; 
+    nombreReal: string; //atributo sin modificador de acceso, por defecto es público
+
+    constructor(alterEgo:string, edad:number, nombreReal:string){
+        this.alterEgo = alterEgo;
+        this.edad = edad;
+        this.nombreReal = nombreReal;
+    }
+}
+const spiderman = new Heroe("Spiderman", 25, "Peter Parker"); 
+
+console.log(spiderman)
+```
+
+Sin embargo cuando aumenta la cantidad de atributos se vuelve una tarea tediosa inicializar uno a uno dentro del constructor, por ello existe una alternativa más rápida:
+
+``` TypeScript
+class Heroe {
+    
+    constructor(
+        public alterEgo:string, 
+        private edad:number,
+        private nombreReal?:string)
+        {}
+}
+const ironman = new Heroe("Iron Man", 50, "Tony Stark"); 
+
+console.log(ironman)
 
 ```
+
+Para extender de una clase:
+
+
 
 ### Tipos genéricos
 
