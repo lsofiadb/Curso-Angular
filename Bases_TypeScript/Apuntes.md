@@ -519,8 +519,29 @@ console.log(ironman)
 
 ```
 
-Para extender de una clase:
+Para extender de una clase el procedimiento es similar a la programación OO en lenguajes como Java:
 
+``` TypeScript
+class Persona {
+    constructor(public nombre: string, public direccion: string){
+
+    }
+}
+
+class Heroe extends Persona{
+    
+    constructor(
+        public alterEgo:string, 
+        private edad:number,
+        private nombreReal?:string)
+        {
+            super(nombreReal, "NY, USA"); //llamado al constructor de la clase padre
+        }
+}
+const ironman = new Heroe("Iron Man", 50, "Tony Stark"); 
+
+console.log(ironman)
+```
 
 
 ### Tipos genéricos
