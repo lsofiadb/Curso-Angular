@@ -559,12 +559,44 @@ let soyUnArray = deQueTipoSoy([1,2,3,4,5,6,7])
 let soyExplicito = deQueTipoSoy<boolean>(true)
 ```
 
-### Decoradores
+### Decoradores de clases
+
+Los [decoradores](https://www.typescriptlang.org/docs/handbook/decorators.html#class-decorators) son una caracteristica propia de TS no de JS. Se trata de una función que expande una clase añadiendole funcionalidades especiales. La idea no es crearlos sino utilizarlos.
 
 ``` TypeScript
+function classDecorator <T extends {new (...args: any[]): {}}>(
+    constructor: T
+) {
+    return class extends constructor {
+        newProperty = "new property";
+        hello = "override";
+    };
+}
 
+@classDecorator //llamado al decorador
+class miSuperClase {
+    public miPropiedad: string = 'ABC123';
+    imprimir(){
+        console.log('Hola mundo')
+    }
+}
+
+console.log( miSuperClase)
+
+const miClase = new miSuperClase()
+
+console.log(miClase.miPropiedad)
 ```
 
+Si se quiere trabajar con decoradores es necesario activar la opción que se observa a continuación el archivo tsconfig.json (existe en angular y hace exactamente lo mismo), básicamente le dice al proyecto como utilizar TS:
+
+``` TypeScript
+"experimentalDecorators": true,
+```
+
+Una vez se añade es necesario reiniciar el servidor para actualizar el proyecto. 
+
+NOTA: más adelante se vera que en Angular se trabaja demasiado con clases y decoradores.
 ### Encadenamiento opcional
 
 ``` TypeScript
