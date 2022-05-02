@@ -597,8 +597,50 @@ Si se quiere trabajar con decoradores es necesario activar la opción que se obs
 Una vez se añade es necesario reiniciar el servidor para actualizar el proyecto. 
 
 NOTA: más adelante se vera que en Angular se trabaja demasiado con clases y decoradores.
-### Encadenamiento opcional
+
+### Encadenamiento opcional (Opcional chaining)
+
+Nos permite controlar el retorno las propiedades opcionales que se pueden presentar en interfaces o clases, de tal manera que no se arrojen excepciones sino un valor determinado o undefined.
+
 
 ``` TypeScript
+interface Pasajero {
+    nombre: string,
+    hijos?: string []
+}
 
+const pasajero1: Pasajero = {
+    nombre: 'Duvan'
+}
+
+const pasajero2: Pasajero = {
+    nombre:"Melissa",
+    hijos: ["Natalia", "Gabriel"]
+}
+```
+
+``` TypeScript
+function imprimeHijos(pasajero: Pasajero): void{
+    const cuantosHijos = pasajero.hijos?.length 
+    console.log(cuantosHijos)
+}
+```
+Al hacer el llamado de la función:
+
+``` TypeScript
+imprimeHijos(pasajero1) //retornara undefined
+imprimeHijos(pasajero2) //retornara 2 siempre porque esta definida la propiedad hijos en esta variable
+```
+Para el primer pasajero se puede solucionar el problema de retornando 0 en lugar de undefined:
+
+``` TypeScript
+function imprimeHijos(pasajero: Pasajero): void{
+    const cuantosHijos = pasajero.hijos?.length || 0
+    console.log(cuantosHijos)
+}
+
+```
+
+``` TypeScript
+imprimeHijos(pasajero1) //retornara 0
 ```
