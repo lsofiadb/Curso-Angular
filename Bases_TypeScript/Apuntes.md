@@ -418,7 +418,7 @@ console.log('Total',total)
 console.log('ISV',isv)
 ```
 
-### Importaciones y exportaciones
+### Importaciones y exportaciones :inbox_tray::outbox_tray:
 
 Las exportaciones permiten hacer una interface o elemento de un archivo como una función, visible para los demás, de tal forma que es posible importarlo en donde sea necesario, beneficiando la estructura  y reusabilidad del código fuente. 
 
@@ -469,7 +469,7 @@ console.log("ISV", isv);
 
 **NOTA** :dart: algo importante a considerar para el ejemplo trabajado en clase, es que al importar una interfaz, únicamente se ejecutará esa sección de código del archivo en donde se encontraba definida, caso distinto si se trata de una función ya que en esa situación se ejecutará todo el código fuente que se encuentre despues. 
 
-### Clases, constructores
+### Clases, constructores :clipboard:
 
 Si bien las clases son similares a las interfaces, su principal diferencia consiste en que en las clases a parte de definir las propiedades que tendrá un objeto, tambien permiten definir e implementar métodos, mientras que en las interfaces únicamente se puede establecer su firma. 
 
@@ -544,7 +544,7 @@ console.log(ironman)
 ```
 
 
-### Tipos genéricos
+### Tipos genéricos :o:
 
 Son de gran utilidad para definir funciones que reciben cualquier tipo de parametro, posibilitando que TS deduzca el tipo de dato que retorna.
 
@@ -559,7 +559,7 @@ let soyUnArray = deQueTipoSoy([1,2,3,4,5,6,7])
 let soyExplicito = deQueTipoSoy<boolean>(true)
 ```
 
-### Decoradores de clases
+### Decoradores de clases :eight_pointed_black_star::eight_spoked_asterisk:
 
 Los [decoradores](https://www.typescriptlang.org/docs/handbook/decorators.html#class-decorators) son una caracteristica propia de TS no de JS. Se trata de una función que expande una clase añadiendole funcionalidades especiales. La idea no es crearlos sino utilizarlos.
 
@@ -598,7 +598,7 @@ Una vez se añade es necesario reiniciar el servidor para actualizar el proyecto
 
 NOTA: más adelante se vera que en Angular se trabaja demasiado con clases y decoradores.
 
-### Encadenamiento opcional (Opcional chaining)
+### Encadenamiento opcional (Opcional chaining) :paperclip:
 
 Nos permite controlar el retorno las propiedades opcionales que se pueden presentar en interfaces o clases, de tal manera que no se arrojen excepciones sino un valor determinado o undefined.
 
